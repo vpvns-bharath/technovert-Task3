@@ -1,0 +1,68 @@
+.pageBody{
+  column-gap: 10px;
+  margin-top: 10px;
+}
+
+.left-part{
+  width: 275px;
+}
+
+.right-part{
+  width: 90%;
+  overflow-x: hidden;
+}
+
+.toggle
+{
+	display: none;
+}
+
+
+@media only screen and (min-width:2135px)
+{
+	.left-part{
+		display: block;
+		position: static;
+	}
+  .toggle{
+		display: none;
+	}
+}
+
+@media only screen and (max-width:2135px){
+	.left-part{
+		display: block;
+		position: static;
+	}
+
+  .toggle{
+		display: none;
+	}
+
+}
+
+@media only screen and (max-width:1527px){
+	.left-part{
+		display: block;
+		position: static;
+	}
+
+  .toggle{
+		display: none;
+	}
+}
+
+@media only screen and (max-width:1173px)
+{
+	.right-part{
+		width: 100%;
+	}
+
+	.left-part{
+		display: none;
+	}
+
+  .toggle{
+    display: block;
+  }
+}

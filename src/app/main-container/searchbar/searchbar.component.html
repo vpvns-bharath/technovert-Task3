@@ -1,0 +1,132 @@
+<div class="letter-search">
+  <div id="filter" class="letters">
+      <button class="btn btn-primary search-btn"><i class="fa-solid fa-user color"></i></button>
+      <button class="btn btn-primary search-btn" name="letter" value="{{ alphabet }}" *ngFor="let alphabet of alphabets" (click)="letterClick($event)">{{ alphabet }}</button>
+  </div>
+</div>
+
+
+<div class="search-panel">
+  <div class="adjusting-flex">
+      <label for="inp1">Search</label>
+      <div class="input-group " id="inp1">
+          <span class="input-group-text mag-glass"><i class="fa-solid fa-magnifying-glass mag-color"></i></span>
+          <input type="text" class="form-control search-field" placeholder="Enter Keyword" id="inp" [(ngModel)]="searchText" (keydown)="searchEmp($event)">
+      </div>
+  </div>
+  <button class="btn btn-success clr-btn p-2 add-margin" id="clear" (click)="clearText()">Clear</button>
+  <div class="adjusting-flex p-2 add-margin ">
+      <label for="drop">Filter by</label>
+      <select class=" btn  dropdown-toggle drop" id="drop" [(ngModel)]="dropDownValue">
+          <option value="FirstName" class="dropdown-item">First Name</option>
+          <option value="LastName" class="dropdown-item">Last Name</option>
+          <option value="JobTitle" class="dropdown-item">Job Title</option>
+          <option value="Department" class="dropdown-item">Department</option>
+      </select>
+  </div>
+  <button class="btn btn-primary emp-add ms-auto p-2 " id="add-emp" data-bs-toggle="modal" data-bs-target="#emp_form">Add Employee</button>
+</div>
+
+
+<!-- add-employee form  -->
+
+<div class="modal fade" id="emp_form" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Employee details </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" id="form" autocomplete="off" (ngSubmit)="submitAddEmployeeForm()" #form="ngForm">
+          <div>
+              <label for="image" class="form-label">Image</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-solid fa-image"></i></span>
+                  <input type="file"  name="image" class="form-control" id="file" ngModel (change)="createUrl($event)">
+              </div>
+          </div>
+
+          <div>
+              <label for="firstName" class="form-label required">FirstName</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-solid fa-users-between-lines"></i></span>
+                  <input type="text" name="firstName" class="form-control" placeholder="Enter FirstName" ngModel required>
+              </div>
+          </div>
+
+          <div >
+              <label for="lastName" class="form-label required">LastName</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-solid fa-users-between-lines"></i></span>
+                  <input type="text" id="lastName" name="lastName"class="form-control" placeholder="Enter LastName" ngModel required>
+              </div>
+          </div>
+
+          <div>
+              <label for="preferredName" class="form-label">PreferredName</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-solid fa-users-between-lines"></i></span>
+                  <input type="text" id="preferredName" name="preferredName" class="form-control" placeholder="Enter PreferredName" ngModel>
+              </div>
+          </div>
+
+          <div>
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-solid fa-at"></i></span>
+                  <input type="email" id="email"
+                  name="email" class="form-control" placeholder="Enter Email" ngModel email #ref="ngModel">
+              </div>
+              <span class="help-block" *ngIf="!ref.valid && ref.touched">Enter valid email!</span>
+          </div>
+
+          <div>
+              <label for="jobtitle" class="form-label required">JobTitle</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-solid fa-user-tie"></i></span>
+                  <input type="text" id="jobtitle" name="jobtitle" class="form-control" placeholder="Enter JobTitle" ngModel required>
+              </div>
+          </div>
+
+          <div>
+              <label for="office" class="form-label required">Office</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-solid fa-building"></i></span>
+                  <input type="text" id="office" name="office" class="form-control" placeholder="Enter Office" ngModel required>
+              </div>
+          </div>
+
+          <div>
+              <label for="dept" class="form-label required">Department</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-solid fa-briefcase"></i></span>
+                  <input type="text" id="dept" name="dept" class="form-control" placeholder="Enter Department" ngModel required>
+              </div>
+          </div>
+
+          <div>
+              <label for="phone" class="form-label">Phone</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-solid fa-phone"></i></span>
+                  <input type="number" id="phone" name="phone" class="form-control" placeholder="Enter PhoneNumber" ngModel>
+              </div>
+          </div>
+
+          <div>
+              <label for="skype" class="form-label">Skype</label>
+              <div class="input-group">
+                  <span class="input-group-text" ><i class="fa-brands fa-skype"></i></span>
+                  <input type="text" id="skype" name="skype" class="form-control" placeholder="Enter SkypeId" ngModel>
+              </div>
+          </div>
+
+          <div class="modal-footer">
+            <input type="submit" value="submit"class="btn btn-outline-success form-submit" data-bs-dismiss="modal" [disabled]="!form.valid">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

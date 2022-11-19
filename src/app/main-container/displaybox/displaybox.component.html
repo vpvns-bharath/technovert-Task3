@@ -1,0 +1,97 @@
+<div class="display-body">
+  <!-- all the employees will be displayed -->
+  <div class="display" id="display">
+
+      <div class="emp-card" data-bs-toggle="modal" [attr.data-bs-target]="'#display_fullDetails'+i"
+      *ngFor="let emp of empList|filter:dept_filter:office_filter:jobtitle_filter:letter_filter;
+       let i=index">
+        <div class="emp-card-body  card-body    d-flex">
+          <div class="emp-image">
+          <img [attr.src]="emp.image" alt="">
+          </div>
+          <div class="emp-text">
+            <h5 class="PreferredName"><span class="FirstName">{{ emp.firstName }}</span>&nbsp;<span class="LastName">{{ emp.lastName }}</span></h5>
+            <p class="JobTitle">{{ emp.jobtitle }}</p>
+            <p class="Department">{{ emp.dept }} department</p>
+            <div class="card-icons">
+              <i class="fa-solid fa-square-phone"></i>&nbsp;
+              <i class="fa-solid fa-envelope"></i>&nbsp;
+              <i class="fa-solid fa-comment"></i>&nbsp;
+              <i class="fa-solid fa-star"></i>&nbsp;
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+  <!-- creates all modals -->
+  <div id="created_modals">
+      <div class="modal fade" [attr.id]="'display_fullDetails'+i" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"  aria-hidden="true" *ngFor="let emp of empList |filter:dept_filter:office_filter:jobtitle_filter:letter_filter;
+      let i=index">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4>Employee Details</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="emp-det" [attr.id]="'emp-det'+i">
+                      <img class="modal-img" [attr.src]="emp.image" alt="">
+                      <form action="" [attr.id]="'details'+i" (ngSubmit)="saveDetails(i)" #empDetailsForm="ngForm">
+
+                              <div class="d-flex emp-det">
+                                  <label>Change Image:</label>
+                                  <input type="file" name="image" [attr.class]="'form-control detailField image'+i" [attr.id]="'emp-data-inp'+i" [placeholder]="emp.image" disabled ngModel (change)="createUrl($event)">
+                              </div>
+                              <div class="d-flex emp-det">
+                                  <label>First Name:</label>
+                                  <input type="text" name="firstName" [attr.class]="'form-control detailField firstName'+i" [attr.id]="'emp-data-inp'+i" placeholder="{{emp.firstName}}" disabled ngModel>
+                              </div>
+                              <div class="d-flex emp-det">
+                                  <label>Last Name:</label>
+                                  <input type="text" name="lastName" [attr.class]="'form-control detailField lastName'+i" [attr.id]="'emp-data-inp'+i" placeholder="{{emp.lastName}}" disabled ngModel>
+                              </div>
+                              <div class="d-flex emp-det">
+                                  <label>Preffered Name:</label>
+                                  <input type="text" name="preferredName" [attr.class]="'form-control detailField preferredName'+i" [attr.id]="'emp-data-inp'+i" placeholder="{{emp.preferredName}}" disabled ngModel>
+                              </div>
+                              <div class="d-flex emp-det">
+                                  <label>Email: </label>
+                                  <input type="text" name="email" [attr.class]="'form-control detailField email'+i" [attr.id]="'emp-data-inp'+i" placeholder="{{emp.email}}" disabled ngModel>
+                              </div>
+                              <div class="d-flex emp-det">
+                                  <label>Job Title: </label>
+                                  <input type="text" name="jobtitle" [attr.class]="'form-control detailField jobtitle'+i" [attr.id]="'emp-data-inp'+i" placeholder="{{emp.jobtitle}}" disabled ngModel>
+                              </div>
+                              <div class="d-flex emp-det">
+                                  <label>Office: </label>
+                                  <input type="text" name="office" [attr.class]="'form-control detailField office'+i" [attr.id]="'emp-data-inp'+i" placeholder="{{emp.office}}" disabled ngModel>
+                              </div>
+                              <div class="d-flex emp-det">
+                                  <label>Department:</label>
+                                  <input type="text" name="dept" [attr.class]="'form-control detailField dept'+i" [attr.id]="'emp-data-inp'+i" placeholder="{{emp.dept}}" disabled ngModel>
+                              </div>
+                              <div class="d-flex emp-det">
+                                  <label>Phone: </label>
+                                  <input type="text" name="phone" [attr.class]="'form-control detailField phone'+i" [attr.id]="'emp-data-inp'+i" placeholder="{{emp.phone}}" disabled ngModel>
+                              </div>
+                              <div class="d-flex emp-det">
+                                  <label>Skype Id:</label>
+                                  <input type="text" name="skype" [attr.class]="'form-control detailField skype'+i" [attr.id]="'emp-data-inp'+i" placeholder="{{emp.skype}}" disabled ngModel>
+                              </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-danger" [attr.name]=i id="edit" #editButtons (click)="editButtonClicked(i)">Edit</button>
+                                <button type="submit" class="btn btn-outline-primary" [attr.name]=i id="save" data-bs-dismiss="modal">Save</button>
+                              </div>
+                      </form>
+                  </div>
+
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,170 @@
+$buttonColor:#00b1fc;
+$clearBtnColour:#69ba00;
+
+.letter-search
+{
+	// margin-left: 8px;
+	padding: 10px 0;
+}
+
+.search-btn
+{
+	background-color: $buttonColor;
+	width: 40px;
+	margin-top: 10px;
+	border-radius:0 ;
+}
+
+.search-btn:hover{
+  border: 1px solid black;
+}
+
+.letters
+{
+	column-gap:5px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.search-panel
+{
+	align-items: center;
+	column-gap: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 50px;
+	padding: 10px 0;
+  margin-right: 15px;
+}
+
+.adjusting-flex
+{
+	align-items: center;
+	column-gap: 10px;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.mag-glass
+{
+	border-radius: 0;
+	background-color: white;
+	border-right: none;
+}
+
+.mag-color
+{
+	color: grey;
+}
+
+.search-field
+{
+	border-radius: 0;
+	border-left: none;
+}
+
+.add-margin
+{
+	margin-left: 5px;
+}
+
+.clr-btn
+{
+	background-color:$clearBtnColour ;
+	height: 40px;
+	width: 80px;
+  border-radius: 0;
+}
+
+.drop
+{
+	border: 2px solid grey;
+  border-radius: 0;
+}
+
+.dropdown-item{
+  text-align: left;
+}
+
+.emp-add
+{
+	background-color: $buttonColor;
+  border-radius: 0;
+}
+
+.form-submit{
+  border-radius: 0;
+  background-color: $clearBtnColour;
+  color: white;
+}
+
+.required::after{
+  content: " *";
+  color: red;
+}
+
+input.ng-invalid.ng-touched{
+  border:1px solid red;
+}
+
+
+@media only screen and (min-width:2135px)
+{
+	.add-margin{
+		margin-left: 20px;
+	}
+	.clr-btn{
+		margin-left: 20px;
+	}
+
+	.letters{
+		justify-content: space-between;
+	}
+
+}
+
+@media only screen and (max-width:2135px){
+	.letters{
+		justify-content: space-between;
+	}
+}
+
+@media only screen and (max-width:1527px){
+
+	.letters{
+		justify-content:left;
+	}
+}
+
+
+
+@media only screen and (max-width:884px)
+{
+	.clr-btn{
+		margin-left: auto !important;
+	}
+	.emp-add{
+		margin: 0 auto !important;
+	}
+}
+
+@media only screen and (max-width:755px)
+{
+	.emp-add{
+		margin: 0 0 0 auto !important;
+	}
+}
+
+@media only screen and (max-width:484px)
+{
+	.search-panel{
+		justify-content: center;
+	}
+	.clr-btn{
+		margin-left: 0 !important;
+	}
+	.emp-add{
+		margin-left: 0 !important;
+	}
+
+}

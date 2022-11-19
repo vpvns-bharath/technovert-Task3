@@ -1,0 +1,14 @@
+<!-- navbar -->
+<app-navbar></app-navbar>
+
+<!-- page body -->
+<button class="btn toggle" (click)="onToggle()"><i class="fa-solid fa-right-to-bracket"></i></button>
+<div class="d-flex pageBody">
+  <div class="left-part" #bodyLeft (window:resize)="onResize($event)">
+    <app-filters></app-filters>
+  </div>
+  <div class="right-part">
+    <app-main-container></app-main-container>
+  </div>
+</div>
+

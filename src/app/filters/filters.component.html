@@ -1,0 +1,28 @@
+<div class="filter" id="filter">
+  <div class="filter-body">
+      <h5 class="filter-head">Departments</h5>
+      <button class="btn filter-btn" name="dept" value="IT" (click)="filterCilcked($event)">IT({{ para['dept']['IT'] }})</button>
+      <button class="btn filter-btn" name="dept" value="Human Resources" (click)="filterCilcked($event)">Human Resources({{ para['dept']['Human Resources'] }})</button>
+      <button class="btn filter-btn" name="dept" value="MD" (click)="filterCilcked($event)">MD({{ para['dept']['MD'] }})</button>
+      <button class="btn filter-btn" name="dept" value="Sales" (click)="filterCilcked($event)">Sales({{ para['dept']['Sales'] }})</button>
+  </div>
+
+  <div class="filter-body">
+      <h5 class="filter-head">Offices</h5>
+      <button class="btn filter-btn" name="office" value="Seattle" (click)="filterCilcked($event)">Seattle({{ para['office']['Seattle'] }})</button>
+      <button class="btn filter-btn" name="office" value="India" (click)="filterCilcked($event)">India({{ para['office']['India'] }})</button>
+  </div>
+
+  <div class="filter-body">
+      <h5 class="filter-head">Job-Titles</h5>
+      <button class="btn filter-btn" name="jobtitle" value="SharePoint Practice Head" (click)="filterCilcked($event)">SharePoint Practice Head({{ para['jobtitle']['SharePoint Practice Head'] }})</button>
+      <button class="btn filter-btn" name="jobtitle" value=".Net Developer Lead" (click)="filterCilcked($event)">.Net Developer Lead({{ para['jobtitle']['.Net Developer Lead'] }})</button>
+      <button class="btn filter-btn" name="jobtitle" value="Recruiting Expert" (click)="filterCilcked($event)">Recruiting Expert({{ para['jobtitle']['Recruiting Expert'] }})</button>
+      <div class="view-more" *ngIf="viewMore">
+          <button class="btn filter-btn" name="jobtitle" value="BI Developer" (click)="filterCilcked($event)">BI Developer({{ para['jobtitle']['BI Developer'] }})</button>
+          <button class="btn filter-btn" name="jobtitle" value="Business Analyst" (click)="filterCilcked($event)">Business Analyst({{ para['jobtitle']['Business Analyst'] }})</button>
+      </div>
+      <a href="#" class="view-more applyColor" (click)="optViewMore()">{{ displayText }}</a>
+
+  </div>
+</div>
